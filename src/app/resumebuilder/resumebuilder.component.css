@@ -1,0 +1,14 @@
+.resume-builder {
+  min-width: 150px;
+  max-width: 500;
+  width: 100%;
+}
+mat-card {
+  margin: 5%;
+  max-width: 80%;
+}
+.resume-build-width {
+  padding-left: 25%;
+  padding-bottom: 2%;
+  width: 50%;
+}

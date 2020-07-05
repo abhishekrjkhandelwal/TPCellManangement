@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+  <span>
+     Welcome {{ name }}
+  </span>
+  <span class="spacer"></span>
+  <ul>
+    <li *ngIf="userIsAuthenticated && loginHeader()">
+      <a mat-button routerLink="/add-user" routerLinkActive="mat-accent">Add User</a>
+    </li>
+    <li *ngIf="userIsAuthenticated && loginHeader()">
+      <a mat-button routerLink="/list-user" routerLinkActive="mat-accent">List User</a>
+    </li>
+    <li *ngIf="userIsAuthenticated && loginHeader()">
+      <a mat-button routerLink="/edit-user" routerLinkActive="mat-accent">Edit User</a>
+    </li>
+    <li *ngIf="userIsAuthenticated">
+      <a mat-button routerLink="/resume-builder" routerLinkActive="mat-accent" >Resume Builder</a>
+    </li>
+    <li *ngIf="!userIsAuthenticated">
+      <a mat-button routerLink="/login" routerLinkActive="mat-accent" >Login</a>
+    </li>
+    <li *ngIf="!userIsAuthenticated">
+      <a mat-button routerLink="/adminlogin" routerLinkActive="mat-accent" >Admin</a>
+    </li>
+    <li *ngIf="!userIsAuthenticated">
+      <a mat-button routerLink="/signup" routerLinkActive="mat-accent">Signup</a>
+    </li>
+    <li *ngIf="userIsAuthenticated">
+      <button mat-button (click)="onLogout()">Logout</button>
+    </li>
+  </ul>
+</mat-toolbar>
