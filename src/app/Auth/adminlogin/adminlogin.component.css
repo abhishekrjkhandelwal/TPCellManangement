@@ -7,7 +7,9 @@ mat-form-field {
   }
   
   .main-div {
-    height: 85vh;
+    height: 90vh;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     display: flex;
     justify-content: center;
     align-items: center;

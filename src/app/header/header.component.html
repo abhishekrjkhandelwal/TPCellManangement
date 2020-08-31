@@ -1,6 +1,6 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary">     
   <span>
-     Welcome {{ name }}
+     TP Cell Management System
   </span>
   <span class="spacer"></span>
   <ul>
@@ -15,6 +15,15 @@
     </li>
     <li *ngIf="userIsAuthenticated">
       <a mat-button routerLink="/resume-builder" routerLinkActive="mat-accent" >Resume Builder</a>
+    </li>
+    <li *ngIf="userIsAuthenticated">
+      <a mat-button routerLink="/company-profile" routerLinkActive="mat-accent" >Company Profile</a>
+    </li>
+    <li *ngIf="userIsAuthenticated">
+      <a mat-button routerLink="/file-upload" routerLinkActive="mat-accent" >Resume Upload</a>
+    </li>
+    <li *ngIf="userIsAuthenticated">
+      <a mat-button routerLink="/list-view" routerLinkActive="mat-accent" >List View</a>
     </li>
     <li *ngIf="!userIsAuthenticated">
       <a mat-button routerLink="/login" routerLinkActive="mat-accent" >Login</a>

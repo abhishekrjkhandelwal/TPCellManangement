@@ -1,0 +1,19 @@
+.example-card {
+    max-width: 400px;
+}
+  
+.example-header-image {
+    background-image: url('../../assets/images/skit.jpg');
+    background-size: cover;
+  }
+
+  /* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 15px 15px;
+  margin-left: 5%;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}

@@ -1,0 +1,47 @@
+button {
+  width: 50%;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  margin: 20%;
+  content: 'Select Resume';
+  display: inline-block;
+  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 2px solid #999;
+  border-radius: 5px;
+  padding: 20px 40px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 20pt;
+}
+.custom-file-input:hover::before {
+  border-color: black;
+}
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+button.mat-button{
+  width: 8%;
+  font-size: 25pt;
+  background-color: darkturquoise;
+}
+
+.progress {
+  margin-top: 2%;
+}
+
+.progress-bar{
+  font-size: 10pt;
+} 

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,15 +9,22 @@ import { SignUpComponent } from './Auth/sign-up/sign-up.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ListUserComponent } from './list-user/list-user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule, MatCard, MatInputModule, MatProgressSpinnerModule,
-MatButtonModule, MatTableModule, MatSnackBarModule, MatFormFieldModule, MatToolbarModule, MatSelectModule} from '@angular/material';
+import { MatCardModule, MatInputModule, MatProgressSpinnerModule,
+MatButtonModule, MatTableModule, MatSnackBarModule, MatFormFieldModule, MatToolbarModule, MatProgressBarModule} from '@angular/material';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { HeaderComponent } from './header/header.component';
 import { ResumebuilderComponent } from './resumebuilder/resumebuilder.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { AdminloginComponent } from './Auth/adminlogin/adminlogin.component';
 import { AdminheaderComponent } from './adminheader/adminheader.component';
+import { CompanyprofileComponent } from './companyprofile/companyprofile.component';
+import { FormUploadComponent } from './form-upload/form-upload.component';
+import { ListUploadComponent } from './list-upload/list-upload.component';
+import { DetailUploadComponent } from './detail-upload/detail-upload.component';
 
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -31,7 +38,11 @@ import { AdminheaderComponent } from './adminheader/adminheader.component';
     ResumebuilderComponent,
     LandingpageComponent,
     AdminloginComponent,
-    AdminheaderComponent
+    AdminheaderComponent,
+    CompanyprofileComponent,
+    FormUploadComponent,
+    ListUploadComponent,
+    DetailUploadComponent
   ],
 
   imports: [
@@ -48,10 +59,18 @@ import { AdminheaderComponent } from './adminheader/adminheader.component';
     MatInputModule,
     MatProgressSpinnerModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatProgressBarModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   providers: [
   ],
-  bootstrap: [AppComponent]
+
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
+  ]
 })
 export class AppModule { }
