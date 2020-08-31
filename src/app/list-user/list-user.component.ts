@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../model/user.model';
+import { map } from 'rxjs/operators';
+import { UploadFileService } from '../upload-file.service';
+import { FileUpload } from '../fileupload';
+
 
 @Component({
   selector: 'app-list-user',
@@ -11,28 +15,34 @@ import { User } from '../model/user.model';
 
 export class ListUserComponent implements OnInit {
 
+  fileUploads: any[];
   public user: User[];
   public value: number;
   public errorMsg;
-  public displayedColumns: string[] = ['id', 'name', 'email', 'mobileno'];
+  public displayedColumns: string[] = ['name', 'url'];
   public datasource = [];
   public id = 1;
-  constructor(private router: Router, private userService: UserService ) { }
+  constructor(private router: Router, private userService: UserService, private uploadService: UploadFileService ) { }
 
 
   ngOnInit() {
     this.getAllUsers();
+    // Use snapshotChanges().pipe(map()) to store the key
   }
 
   // get all users information
   getAllUsers() {
-    this.userService.getUsers()
-    .subscribe ( data => {
-       this.user = data,
-       // tslint:disable-next-line: no-unused-expression
-       error => this.errorMsg = error;
-       this.datasource = this.user;
-   });
+   this.uploadService.getFileUploads(6).snapshotChanges().pipe(
+    map(changes =>
+      changes.map(c => ({ key: c.payload.key, ...c.payload.val() })
+      )
+    )
+  ).subscribe(fileUploads => {
+    console.log("fileuploads" + JSON.stringify(fileUploads));
+    this.fileUploads = fileUploads;
+    console.log('fileuploads' + this.fileUploads);
+    this.datasource = fileUploads;
+  });
   }
 
   // delete id form list

@@ -19,8 +19,6 @@ import { AdminloginComponent } from './Auth/adminlogin/adminlogin.component';
 import { AdminheaderComponent } from './adminheader/adminheader.component';
 import { CompanyprofileComponent } from './companyprofile/companyprofile.component';
 import { FormUploadComponent } from './form-upload/form-upload.component';
-import { ListUploadComponent } from './list-upload/list-upload.component';
-import { DetailUploadComponent } from './detail-upload/detail-upload.component';
 
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
@@ -41,8 +39,6 @@ import { environment } from '../environments/environment';
     AdminheaderComponent,
     CompanyprofileComponent,
     FormUploadComponent,
-    ListUploadComponent,
-    DetailUploadComponent
   ],
 
   imports: [

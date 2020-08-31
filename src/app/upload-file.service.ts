@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import 'firebase/storage';
-import { FileUpload } from './fileupload';
+import { User } from './model/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class UploadFileService {
  
   constructor(private db: AngularFireDatabase) { }
  
-  pushFileToStorage(fileUpload: FileUpload, progress: { percentage: number }) {
+  pushFileToStorage(fileUpload: User, progress: { percentage: number }) {
     const storageRef = firebase.storage().ref();
     const uploadTask = storageRef.child(`${this.basePath}/${fileUpload.file.name}`).put(fileUpload.file);
  
@@ -39,16 +39,19 @@ export class UploadFileService {
     );
   }
  
-  private saveFileData(fileUpload: FileUpload) {
+  private saveFileData(fileUpload: User) {
+    console.log("url" + fileUpload.url);
+    console.log("name" + fileUpload.name);
+    console.log("key" + fileUpload.key);
     this.db.list(`${this.basePath}/`).push(fileUpload);
   }
  
-  getFileUploads(numberItems): AngularFireList<FileUpload> {
+  getFileUploads(numberItems): AngularFireList<User> {
     return this.db.list(this.basePath, ref =>
       ref.limitToLast(numberItems));
   }
  
-  deleteFileUpload(fileUpload: FileUpload) {
+  deleteFileUpload(fileUpload: User) {
     this.deleteFileDatabase(fileUpload.key)
       .then(() => {
         this.deleteFileStorage(fileUpload.name);

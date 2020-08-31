@@ -5,13 +5,7 @@
   <span class="spacer"></span>
   <ul>
     <li *ngIf="userIsAuthenticated && loginHeader()">
-      <a mat-button routerLink="/add-user" routerLinkActive="mat-accent">Add User</a>
-    </li>
-    <li *ngIf="userIsAuthenticated && loginHeader()">
-      <a mat-button routerLink="/list-user" routerLinkActive="mat-accent">List User</a>
-    </li>
-    <li *ngIf="userIsAuthenticated && loginHeader()">
-      <a mat-button routerLink="/edit-user" routerLinkActive="mat-accent">Edit User</a>
+      <a mat-button routerLink="/list-user" routerLinkActive="mat-accent">Students</a>
     </li>
     <li *ngIf="userIsAuthenticated">
       <a mat-button routerLink="/resume-builder" routerLinkActive="mat-accent" >Resume Builder</a>
@@ -21,9 +15,6 @@
     </li>
     <li *ngIf="userIsAuthenticated">
       <a mat-button routerLink="/file-upload" routerLinkActive="mat-accent" >Resume Upload</a>
-    </li>
-    <li *ngIf="userIsAuthenticated">
-      <a mat-button routerLink="/list-view" routerLinkActive="mat-accent" >List View</a>
     </li>
     <li *ngIf="!userIsAuthenticated">
       <a mat-button routerLink="/login" routerLinkActive="mat-accent" >Login</a>

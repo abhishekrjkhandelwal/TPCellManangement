@@ -10,8 +10,6 @@ import { AuthGuard } from './Auth/auth.guard';
 import { AdminloginComponent } from './Auth/adminlogin/adminlogin.component';
 import { CompanyprofileComponent } from './companyprofile/companyprofile.component';
 import { FormUploadComponent } from './form-upload/form-upload.component';
-import { ListUploadComponent } from './list-upload/list-upload.component';
-import { DetailUploadComponent } from './detail-upload/detail-upload.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent , data: {animation: 'Login'}},
@@ -23,9 +21,7 @@ const routes: Routes = [
   { path: 'edit-user', component: EditUserComponent, canActivate : [AuthGuard]},
   { path: 'resume-builder', component: ResumebuilderComponent, canActivate : [AuthGuard]},
   { path: 'company-profile', component: CompanyprofileComponent, canActivate : [AuthGuard]},
-  { path: 'file-upload', component: FormUploadComponent, canActivate : [AuthGuard]},
-  { path: 'list-view', component: ListUploadComponent, canActivate : [AuthGuard]},
-  { path: 'detail-upload', component: DetailUploadComponent, canActivate : [AuthGuard]}
+  { path: 'file-upload', component: FormUploadComponent, canActivate : [AuthGuard]}
 ];
 
 @NgModule({

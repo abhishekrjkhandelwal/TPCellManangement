@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FileUpload } from '../fileupload';
+import { User } from '../model/user.model';
 import { UploadFileService } from '../upload-file.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { UploadFileService } from '../upload-file.service';
 export class FormUploadComponent implements OnInit {
 
   selectedFiles: FileList;
-  currentFileUpload: FileUpload;
+  currentFileUpload: User;
   progress: { percentage: number } = { percentage: 0 };
  
   constructor(private uploadService: UploadFileService) { }
@@ -26,7 +26,7 @@ export class FormUploadComponent implements OnInit {
     const file = this.selectedFiles.item(0);
     this.selectedFiles = undefined;
  
-    this.currentFileUpload = new FileUpload(file);
+    this.currentFileUpload = new User(file);
     this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress);
   }
 }
